@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracker Win Loss</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: system-ui, -apple-system, sans-serif;
+            background: #1a1a1a;
+            color: #eee;
+        }
+        .tracker-wrap {
+            width: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+        }
+        .tracker-logo {
+            width: 200px;
+            height: 100px;
+            object-fit: contain;
+            object-position: center;
+            display: block;
+            margin-bottom: 4px;
+        }
+        .counter-box {
+            width: 200px;
+            height: 100px;
+            display: flex;
+            border: 2px solid #444;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #252525;
+        }
+        .column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 4px;
+            border-right: 1px solid #444;
+        }
+        .column:last-child { border-right: none; }
+        .label {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 2px;
+        }
+        .number {
+            font-size: 36px;
+            font-weight: bold;
+            min-width: 1.5em;
+            text-align: center;
+        }
+        .column.win .number { color: #4ade80; }
+        .column.loss .number { color: #f87171; }
+        .buttons-row {
+            width: 200px;
+            display: flex;
+            margin-top: 4px;
+        }
+        .buttons-cell {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            gap: 4px;
+        }
+        .buttons-cell button {
+            width: 22px;
+            height: 18px;
+            border: 1px solid #555;
+            border-radius: 4px;
+            background: #333;
+            color: #eee;
+            font-size: 14px;
+            line-height: 1;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+        }
+        .buttons-cell button:hover {
+            background: #444;
+        }
+        .buttons-cell button:active {
+            background: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="tracker-wrap">
+        <img class="tracker-logo" src="src/logo.png" alt="Logo">
+        <div class="counter-box">
+            <div class="column win">
+                <div class="label">Win</div>
+                <span class="number" id="win-count">0</span>
+            </div>
+            <div class="column loss">
+                <div class="label">Loss</div>
+                <span class="number" id="loss-count">0</span>
+            </div>
+        </div>
+        <div class="buttons-row">
+            <div class="buttons-cell">
+                <button type="button" id="win-minus" aria-label="Restar win">−</button>
+                <button type="button" id="win-plus" aria-label="Sumar win">+</button>
+            </div>
+            <div class="buttons-cell">
+                <button type="button" id="loss-minus" aria-label="Restar loss">−</button>
+                <button type="button" id="loss-plus" aria-label="Sumar loss">+</button>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
