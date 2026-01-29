@@ -19,6 +19,7 @@
   var winPlus = document.getElementById('win-plus');
   var lossMinus = document.getElementById('loss-minus');
   var lossPlus = document.getElementById('loss-plus');
+  var resetBtn = document.getElementById('reset-btn');
   var shareUrlEl = document.getElementById('share-url');
   var copyBtn = document.getElementById('copy-btn');
   var syncStatusEl = document.getElementById('sync-status');
@@ -98,6 +99,16 @@
     }
   }
 
+  function resetCounters() {
+    state.win = 0;
+    state.loss = 0;
+    render();
+    saveLocal();
+    if (dbRef) {
+      dbRef.set({ win: state.win, loss: state.loss });
+    }
+  }
+
   function initFirebase() {
     if (!FIREBASE_CONFIG || !tokenId) return;
     try {
@@ -163,6 +174,7 @@
 
     winMinus.addEventListener('click', function () { changeWin(-1); });
     winPlus.addEventListener('click', function () { changeWin(1); });
+    if (resetBtn) resetBtn.addEventListener('click', resetCounters);
     lossMinus.addEventListener('click', function () { changeLoss(-1); });
     lossPlus.addEventListener('click', function () { changeLoss(1); });
   }

@@ -93,6 +93,22 @@
         .buttons-cell button:active {
             background: #555;
         }
+        .buttons-cell.reset-cell {
+            flex: 0 0 auto;
+            min-width: 44px;
+        }
+        .buttons-cell button.reset-btn {
+            width: 36px;
+            height: 18px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            background: #3a3a3a;
+            border-color: #666;
+        }
+        .buttons-cell button.reset-btn:hover {
+            background: #555;
+        }
         .share-box {
             width: 200px;
             margin-top: 12px;
@@ -155,6 +171,9 @@
             <div class="buttons-cell">
                 <button type="button" id="win-minus" aria-label="Restar win">−</button>
                 <button type="button" id="win-plus" aria-label="Sumar win">+</button>
+            </div>
+            <div class="buttons-cell reset-cell">
+                <button type="button" id="reset-btn" class="reset-btn" aria-label="Resetear contadores">0</button>
             </div>
             <div class="buttons-cell">
                 <button type="button" id="loss-minus" aria-label="Restar loss">−</button>
